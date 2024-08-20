@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { themeSettings } from 'theme';
+import { themeSettings } from './theme';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, replace, Route, Routes } from 'react-router-dom';
+import Layout from './Scenes/Layout/Layout';
+import Dashboard from './Scenes/Dashboard/Dashboard';
 const App = () => {
-    const mode = useSelector((state) => state.mode.global); 
+    const mode = useSelector((state) => state.global.mode); 
     const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode])
     return (
         <>
@@ -16,7 +18,7 @@ const App = () => {
                     <Routes>
                         <Route element={<Layout/>}>
                         <Route path='/' element={<Navigate to="/dashboard" replace />}/>
-                        <Route path='/dashboard' element={<Dahboard/>} /> 44 minitu
+                        <Route path='/dashboard' element={<Dashboard/>} />
 
                         </Route>
                     </Routes>
