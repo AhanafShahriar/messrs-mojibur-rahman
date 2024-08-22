@@ -10,7 +10,7 @@ import FlexBetween from '../Componants/FlexBetween';
 import ArrowDropDownOutlined from '@mui/icons-material/ArrowDropDownOutlined';
 import { useDispatch } from 'react-redux';
 import { setMode } from '../State';
-import { AppBar, IconButton, InputBase, Toolbar, useTheme } from '@mui/material';
+import { AppBar, IconButton, InputAdornment, InputBase, Toolbar, useTheme } from '@mui/material';
 
 
 const Navbar = () => {
@@ -40,12 +40,24 @@ const Navbar = () => {
                         gap= "3rem"
                         p="0.1rem 1.5rem"
                         >  
-                        <InputBase placeholder='Search...'/>
-                        <IconButton>
-                            <Search/>
-                        </IconButton>
-
-
+                           <InputBase
+                        placeholder='Search...'
+                        sx={{
+                            backgroundColor: theme.palette.mode === 'dark' ? '#4D536B' : '#E9EAEC',
+                            borderRadius: '3px',
+                            p: "0.1rem 1.5rem",
+                            width: '100%', // Adjust width as needed
+                        }}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton>
+                                    <Search />
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        
+                    />
+                        
                         </FlexBetween>
                     </FlexBetween>
                      {/* Right side of navbar */}
@@ -59,6 +71,9 @@ const Navbar = () => {
                             )
                         }
                         
+                        </IconButton>
+                        <IconButton>
+                            <SettingsOutlined sx={{ fontSize: "25px"}}/>
                         </IconButton>
 
                      </FlexBetween>
