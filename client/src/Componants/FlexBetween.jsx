@@ -1,6 +1,6 @@
-const { default: styled } = require("@emotion/styled");
-const {Box} = require("@mui/material");
-const {Styled} = require ("@mui/system");
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+// import { Styled } from "@mui/system";
 
 
 const FlexBetween = styled(Box)({
